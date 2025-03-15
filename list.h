@@ -1,30 +1,28 @@
 #include "WIFI.h"
 #ifndef LIST_H 
 #define LIST_H
-/*
-struct WIFI_item
+
+typedef struct WIFI_item
 {
 	WIFI data;
 	struct WIFI_item* next;
-};
+}WIFI_item;
 
-struct WIFI_list
+typedef struct WIFI_list
 {
 	struct WIFI_item* head;
-};
+}WIFI_list;
 
-void WIFI_list_init(struct WIFI_list* router_list);
+int push_front(WIFI_list* list, WIFI data);
 
-void insert_in_start(struct WIFI_list* router_list, WIFI* p);
+void delete_front(WIFI_list* data);
 
-void delete_from_start(struct WIFI_list* router_list);
+void print_list(const WIFI_list* data);
 
-void print_list(struct WIFI_list* router_list);
+void delete_list(WIFI_list* list);
 
-void sort_list(struct WIFI_list* router_list);
+int add_to_ordered(WIFI_list* list, WIFI data);
 
-void insert_to_sorted(struct WIFI_list* router_list, struct WIFI* p);
+void delete_selected_element(WIFI_list* list, WIFI data);
 
-void delete_list(struct WIFI_list* router_list);
-*/
 #endif

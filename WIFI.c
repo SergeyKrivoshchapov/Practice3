@@ -190,12 +190,12 @@ int compare(const WIFI* router1, const WIFI* router2)
 // Returns 1 if p2 is bigger. Else 0. 
 int compare_int(const WIFI* router1, const WIFI* router2)
 {
-	if ((router2->port_count != router1->port_count)
+	if (router2->port_count != router1->port_count)
 	{
 		if ((router2->port_count > router1->port_count)) return 1;
 		return 0;
 	}
-	if ((router2->has_5G > router1->has_5G)) return 1;
+	if (router2->has_5G > router1->has_5G) return 1;
 	return 0;
 }
 
