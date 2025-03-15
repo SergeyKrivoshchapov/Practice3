@@ -38,9 +38,9 @@ int main()
 	router_list->head = NULL;
 	
 	// Добавляем элементы в начало списка
-	if (push_front(router_list, *router1) == 1) return 1;
-	if (push_front(router_list, *router2) == 1) return 1;
-	if (push_front(router_list, *router3) == 1) return 1;
+	if (push_front(router_list, router1) == 1) return 1;
+	if (push_front(router_list, router2) == 1) return 1;
+	if (push_front(router_list, router3) == 1) return 1;
 
 	print_list(router_list); // Вывод сведений о  каждом элементе списка
 
@@ -87,14 +87,14 @@ int main()
 	
 	printf("Initializing ordered list\n");
 
-	if(add_to_ordered(router_list, *router1) == 1) return 1;
-	if(add_to_ordered(router_list, *router2) == 1) return 1;
-	if(add_to_ordered(router_list, *router3) == 1) return 1;
-	if(add_to_ordered(router_list, *router4) == 1) return 1;
+	if(add_to_ordered(router_list, router1) == 1) return 1;
+	if(add_to_ordered(router_list, router2) == 1) return 1;
+	if(add_to_ordered(router_list, router3) == 1) return 1;
+	if(add_to_ordered(router_list, router4) == 1) return 1;
 
 	print_list(router_list);
 
-	delete_selected_element(router_list, *router4);
+	delete_selected_element(router_list, router4);
 
 	printf("Ordered list after deleting element:\n");
 	print_list(router_list);
