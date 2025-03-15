@@ -102,7 +102,7 @@ void copy_struct(const WIFI* router, WIFI* copy)
 
 void print_struct(const WIFI* router)
 {
-    printf(" Brand name: %s \n port_count: %d\n has 5g: %s\n\n ",
+    printf("Brand name: %s \nport_count: %d\nhas 5g: %s\n\n ",
     router->vendor,
     router->port_count,
     router->has_5G ? "yes":"no");

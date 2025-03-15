@@ -23,7 +23,6 @@ void delete_front(WIFI_list* list)
     }
     struct WIFI_item* temp = list->head;
     list->head = list->head->next;
-    dynamic_struct_free(&temp->data);
     free(temp);
 }
 

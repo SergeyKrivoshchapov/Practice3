@@ -45,8 +45,14 @@ int main()
 	//dynamic_struct_free(router2);
 	//dynamic_struct_free(router3);
 	
-	printf("Initializing not ordered list with three structs");
-	struct WIFI_list* router_list = NULL;
+	printf("Initializing not ordered list with three structs.\n");
+	WIFI_list* router_list = (WIFI_list*)malloc(sizeof(WIFI_list));
+	if (router_list == NULL) 
+	{
+		printf("Can't create list.\n");
+		return 1;
+	}
+	router_list->head = NULL;
 	// adding to front of list 
 	if (push_front(router_list, *router1) == 1) return 1;
 	if (push_front(router_list, *router2) == 1) return 1;
@@ -107,6 +113,11 @@ int main()
 	print_list(router_list);
 
 	delete_list(router_list);
+
+	dynamic_struct_free(router1);
+	dynamic_struct_free(router2);
+	dynamic_struct_free(router3);
+	dynamic_struct_free(router4);
 
 	return 0;
 }
