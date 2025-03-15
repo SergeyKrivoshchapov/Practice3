@@ -2,15 +2,16 @@
 #include "list.h"
 int main()
 {
-	printf("Creating first dynamic struct.\n");
+	// Инициализация в динамической памяти трёх экземпляров структуры
+	printf("Creating first struct.\n");
 	WIFI* router1 = dynamic_struct_create("1", 1, Is5G);
 
-	if (router1 == NULL) return 1;
+	if (router1 == NULL) return 1; // Проверка корректности инициализации экземпляра
 
 	printf("First: \n");
-	print_struct(router1);
+	print_struct(router1); // Вывод сведений о структуре
 
-	printf("Creating second dinamic struct.\n");
+	printf("Creating second struct.\n");
 	WIFI* router2 = dynamic_struct_create("2", 2, Is5G);
 
 	if (router2 == NULL) return 1;
@@ -18,7 +19,7 @@ int main()
 	printf("Second: \n");
 	print_struct(router2);
 
-	printf("Creating third dynamic struct.\n");
+	printf("Creating third struct.\n");
 	WIFI* router3 = dynamic_struct_create("3", 3, Not5G);
 	
 	if (router3 == NULL) return 1;
@@ -26,25 +27,7 @@ int main()
 	printf("Third: \n");
 	print_struct(router3);
 
-	printf("Initializing second struct as a copy of first struct\n");
-	copy_struct(router2, router1);
-	
-	printf("First: \n");
-	print_struct(router1);
-
-	printf("Copy of first struct\n");
-	print_struct(router2);
-
-	if (field_changing(router1) == 1) return 1;
-	
-	printf("\nResult of changes\n");
-	print_struct(router1);
-
-	// del from dyn mem
-	//dynamic_struct_free(router1);
-	//dynamic_struct_free(router2);
-	//dynamic_struct_free(router3);
-	
+	// Инициализация неупорядоченного списка 
 	printf("Initializing not ordered list with three structs.\n");
 	WIFI_list* router_list = (WIFI_list*)malloc(sizeof(WIFI_list));
 	if (router_list == NULL) 
@@ -53,21 +36,25 @@ int main()
 		return 1;
 	}
 	router_list->head = NULL;
-	// adding to front of list 
+	
+	// Добавляем элементы в начало списка
 	if (push_front(router_list, *router1) == 1) return 1;
 	if (push_front(router_list, *router2) == 1) return 1;
 	if (push_front(router_list, *router3) == 1) return 1;
 
-	print_list(router_list);
+	print_list(router_list); // Вывод сведений о  каждом элементе списка
 
 	printf("Removing front element:\n");
-	delete_front(router_list);
+	delete_front(router_list); // Удаления первого элемента списка
 	
 	print_list(router_list);
 
-	delete_list(router_list);
+	delete_list(router_list); // Удаление списка полностью.
 	
-	//list_print(&router_list);
+	//Освобождение динамической памяти, выделенной под экземпляры структуры
+	dynamic_struct_free(router1);
+	dynamic_struct_free(router2);
+	dynamic_struct_free(router3);
 	
 	printf("Creating first dynamic struct.\n");
 	router1 = dynamic_struct_create("1", 1, Is5G);

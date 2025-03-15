@@ -58,7 +58,7 @@ enum ERROR_CODE router_DataCheck(const WIFI* router)
 	return Success; 
 }
 
-int init_struct(WIFI* router, const char* vendor, unsigned int port_count, enum _5G_MARK has_5G ) 
+int init_struct(WIFI* router, const char* vendor, unsigned short port_count, enum _5G_MARK has_5G ) 
 { 
     strncpy(router->vendor, vendor, MAX_VENDOR_LENGTH);
     router->vendor[MAX_VENDOR_LENGTH - 1] = '\0';
