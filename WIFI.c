@@ -158,39 +158,45 @@ int update_5G_mark(WIFI* router, const enum _5G_MARK value)
 
 WIFI* dynamic_struct_create(const char* vendor, const unsigned short port_count, const enum _5G_MARK has_5G)
 {
-    WIFI* router = (WIFI*)malloc(sizeof(WIFI));
+	WIFI* router = (WIFI*)malloc(sizeof(WIFI));
     
-    if (!router) return NULL;
-    
-    if (struct_init_result(init_struct(router, vendor, port_count, has_5G)) == 0) return router;
+	if (!router) return NULL;
 
-    dynamic_struct_free(router);
-    return NULL; 
+	if (struct_init_result(init_struct(router, vendor, port_count, has_5G)) == 0) return router;
+
+	dynamic_struct_free(router);
+	return NULL; 
 }
 
 WIFI* dynamic_struct_free(WIFI* dym_struct_ptr)
 { 
-    free(dym_struct_ptr);
-    dym_struct_ptr = NULL;
+	free(dym_struct_ptr);
+	dym_struct_ptr = NULL;
 }
 
 int is_equal(const WIFI* router1, const WIFI* router2)
 {
-    return ((strcmp(router1->vendor, router2->vendor) == 0) && router1->port_count == router2->port_count && router1->has_5G == router2->has_5G);
+	return ((strcmp(router1->vendor, router2->vendor) == 0) && router1->port_count == router2->port_count && router1->has_5G == router2->has_5G);
 }
 
 int compare(const WIFI* router1, const WIFI* router2)
 {
-    int vend_cmp_result = strcmp(router2->vendor, router1->vendor);
-    if (vend_cmp_result != 0) return (vend_cmp_result < 0);
-    return compare_int(router1, router2); 
+	int vend_cmp_result = strcmp(router2->vendor, router1->vendor);
+	if (vend_cmp_result != 0) return (vend_cmp_result < 0);
+	return compare_int(router1, router2); 
 }
 
 // Port_count - Second priority of comparsion. 5G mark - third.
 // Returns 1 if p2 is bigger. Else 0. 
 int compare_int(const WIFI* router1, const WIFI* router2)
 {
-    return ((router2->port_count > router1->port_count) || (router2->has_5G > router1->has_5G));
+	if ((router2->port_count != router1->port_count)
+	{
+		if ((router2->port_count > router1->port_count)) return 1;
+		return 0;
+	}
+	if ((router2->has_5G > router1->has_5G)) return 1;
+	return 0;
 }
 
 #endif 
