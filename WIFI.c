@@ -118,6 +118,7 @@ int field_changing(WIFI* router)
     {
         case 1:
         	char vendor_name_tochange[MAX_VENDOR_LENGTH];
+		printf("\nEnter new vendor value: ");
 		input_string(vendor_name_tochange, MAX_VENDOR_LENGTH);
 		init_checkmark = struct_init_result(update_vendor_name(router, vendor_name_tochange));
 		break;
