@@ -1,35 +1,68 @@
-#define _CRT_SECURE_NO_WARNINGS
+#include <stddef.h>
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
+#include <limits.h>
+#include <math.h>
+
 #ifndef WIFI_H 
 #define WIFI_H
 
-#define vendor_name_lenght 20
+#define MAX_VENDOR_LENGTH 20
+#define MAX_INT_LENGTH 8
+#define MAX_MARK_LENGTH 10
+
+enum ERROR_CODE
+{
+	Success, Invalid_Port_Count, Invalid_5G_Mark
+};
+
+enum _5G_MARK 
+{
+	Is5G, Not5G, Undefined
+};
+
 typedef struct WIFI
 {
-	char vendor[vendor_name_lenght];
-	unsigned int port_count;
-	int has_5G;
+	char vendor[MAX_VENDOR_LENGTH]; 
+	unsigned short port_count;
+	enum _5G_MARK has_5G;
 }WIFI;
 
-int correct(const struct WIFI* m);
+int input_int(const char* message);
 
-int init_struct(struct WIFI* m, const char* vendor, unsigned int port_count, int has_5G);
+void input_string(char* buffer, int buffer_size); 
 
-void copy_struct(const struct WIFI* m, struct WIFI* copy);
+enum _5G_MARK input_5G_mark(const char* message);
 
-void printstruct(const struct WIFI* );
+enum ERROR_CODE router_DataCheck(const WIFI* router);
 
-int change_struct_value(struct WIFI* m, int box_num);
+int init_struct(WIFI* router, const char* vendor, unsigned int port_count, enum _5G_MARK has_5G ); 
 
-WIFI* dynamic_struct_create();
+int struct_init_result(const enum ERROR_CODE result_code);
 
-WIFI* dynamic_struct_free(struct WIFI* dym_struct_ptr);
+int init_userdata(WIFI* router);
 
-int is_equal(const struct WIFI* p1,const struct WIFI* p2);
+void copy_struct(const WIFI* router, WIFI* copy);
 
-int compare(const struct WIFI* p1, const struct WIFI* p2);
+void print_struct(const WIFI* router);
 
-int compare_int(const struct WIFI* p1, const struct WIFI* p2);
+int field_changing(WIFI* router);
+
+int update_port_count(WIFI* router, const unsigned short value);
+
+int update_vendor_name(WIFI* router, const char* value);
+
+int update_5G_mark(WIFI* router, const enum _5G_MARK value);
+
+WIFI* dynamic_struct_create(const char* vendor, const unsigned short port_count, const enum _5G_MARK has_5G);
+
+WIFI* dynamic_struct_free(WIFI* dym_struct_ptr);
+
+int is_equal(const WIFI* router1, const WIFI* router2);
+
+int compare(const WIFI* router1, const WIFI* router2);
+
+int compare_int(const WIFI* router1, const WIFI* router2);
+
 #endif /* WIFI_H */

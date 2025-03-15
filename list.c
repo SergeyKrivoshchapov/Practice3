@@ -1,5 +1,5 @@
 #include "list.h"
-
+/*
 void WIFI_list_init(struct WIFI_list* list)
 {
     list->head = NULL;
@@ -22,3 +22,4 @@ void print_list(struct WIFI_list* list)
     while (list->head->next != NULL) printstruct(list->head->data);
 }
 
+*/
