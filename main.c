@@ -4,7 +4,7 @@ int main()
 {
 	// Инициализация в динамической памяти трёх экземпляров структуры
 	printf("Creating first struct.\n");
-	WIFI* router1 = dynamic_struct_create("1", 1, Is5G);
+	WIFI* router1 = dynamic_struct_create("TPLINK", 2, Is5G);
 
 	if (router1 == NULL) return 1; // Проверка корректности инициализации экземпляра
 
@@ -12,7 +12,7 @@ int main()
 	print_struct(router1); // Вывод сведений о структуре
 
 	printf("Creating second struct.\n");
-	WIFI* router2 = dynamic_struct_create("2", 2, Is5G);
+	WIFI* router2 = dynamic_struct_create("TPLINK", 6, Is5G);
 
 	if (router2 == NULL) return 1;
 	
@@ -20,7 +20,7 @@ int main()
 	print_struct(router2);
 
 	printf("Creating third struct.\n");
-	WIFI* router3 = dynamic_struct_create("3", 3, Not5G);
+	WIFI* router3 = dynamic_struct_create("ROSTELECOM", 2, Not5G);
 	
 	if (router3 == NULL) return 1;
 
@@ -57,7 +57,7 @@ int main()
 	dynamic_struct_free(router3);
 	
 	printf("Creating first dynamic struct.\n");
-	router1 = dynamic_struct_create("1", 1, Is5G);
+	router1 = dynamic_struct_create("TPLINK", 2, Is5G);
 
 	if (router1 == NULL) return 1;
 
@@ -65,7 +65,7 @@ int main()
 	print_struct(router1);
 
 	printf("Creating second dynamic struct.\n");
-	router2 = dynamic_struct_create("2", 2, Is5G);
+	router2 = dynamic_struct_create("TPLINK", 6, Is5G);
 
 	if (router2 == NULL) return 1;
 	
@@ -73,7 +73,7 @@ int main()
 	print_struct(router2);
 
 	printf("Creating third dynamic struct.\n");
-	router3 = dynamic_struct_create("3", 3, Not5G);
+	router3 = dynamic_struct_create("ROSTELECOM", 2, Not5G);
 	
 	if (router3 == NULL) return 1;
 
@@ -81,7 +81,7 @@ int main()
 	print_struct(router3);
 
 	printf("Creating fourth dynamic struct.\n");
-	WIFI* router4 = dynamic_struct_create("4", 3, Is5G);
+	WIFI* router4 = dynamic_struct_create("4R", 3, Is5G);
 
 	if (router4 == NULL) return 1;
 	
