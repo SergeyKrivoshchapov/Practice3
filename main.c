@@ -2,7 +2,7 @@
 #include "list.h"
 int main()
 {
-	// Инициализация трёх экземпляров структуры
+	// Инициализация трёх экземпляров структуры на стеке
 	printf("Creating first struct.\n");
 	WIFI router1;
 
