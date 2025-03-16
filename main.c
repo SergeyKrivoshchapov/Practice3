@@ -6,21 +6,21 @@ int main()
 	printf("Creating first struct.\n");
 	WIFI router1;
 
-	if (struct_init_result(init_struct(&router1, "1", 1, Is5G)) != 0) return 1;
+	if (struct_init_result(init_struct(&router1, "TPLINK", 2, Is5G)) != 0) return 1;
 
 	printf("First: \n");
 	print_struct(&router1); // Вывод сведений о структуре
 
 	printf("Creating second struct.\n");
 	WIFI router2;
-	if (struct_init_result(init_struct(&router2, "2", 2, Is5G)) != 0) return 1;
+	if (struct_init_result(init_struct(&router2, "TPLINK", 6, Is5G)) != 0) return 1;
 
 	printf("Second: \n");
 	print_struct(&router2);
 
 	printf("Creating third struct.\n");
 	WIFI router3;
-	if (struct_init_result(init_struct(&router3, "3", 3, Not5G)) != 0) return 1;
+	if (struct_init_result(init_struct(&router3, "ROSTELECOM", 2, Not5G)) != 0) return 1;
 
 	printf("Third: \n");
 	print_struct(&router3);
@@ -51,7 +51,7 @@ int main()
 		
 	printf("Creating fourth struct.\n");
 	WIFI router4;
-	if (struct_init_result(init_struct(&router4, "4", 4, Not5G)) != 0) return 1;
+	if (struct_init_result(init_struct(&router4, "4R", 3, Is5G)) != 0) return 1;
 
 	printf("Fourth: \n");
 	print_struct(&router1);
