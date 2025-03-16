@@ -4,7 +4,7 @@
 
 typedef struct WIFI_item
 {
-	WIFI data; // Данные о роутере
+	WIFI data; // Данные о роутере по значению
 	struct WIFI_item* next; // Указатель на следующий элемент списка
 }WIFI_item;
 
