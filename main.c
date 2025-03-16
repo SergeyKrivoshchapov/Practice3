@@ -48,29 +48,6 @@ int main()
 	print_list(router_list);
 
 	delete_list(router_list); // Удаление списка полностью.
-		
-	printf("Creating fourth struct.\n");
-	WIFI router4;
-	if (struct_init_result(init_struct(&router4, "4", 4, Not5G)) != 0) return 1;
-
-	printf("Fourth: \n");
-	print_struct(&router1);
-
-	printf("Initializing ordered list\n");
-
-	if(add_to_ordered(router_list, router1) == 1) return 1;
-	if(add_to_ordered(router_list, router2) == 1) return 1;
-	if(add_to_ordered(router_list, router3) == 1) return 1;
-	if(add_to_ordered(router_list, router4) == 1) return 1;
-
-	print_list(router_list);
-
-	delete_selected_element(router_list, router4);
-
-	printf("Ordered list after deleting element:\n");
-	print_list(router_list);
-
-	delete_list(router_list);
 
 	return 0;
 }
